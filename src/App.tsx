@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Badge } from "react-bootstrap";
 import "./App.scss";
 import { Research } from "./ResearchSection";
 
@@ -41,6 +41,109 @@ function Bio() {
   );
 }
 
+function Experiences() {
+  return (
+    <>
+      <h3>Experience</h3>
+      <Row className="experience-row pt-2">
+        <Col xs={3}>
+          <img
+            src="https://cdn-www.mediatek.com/icons/mtklogo.svg"
+            alt="mtk logo"
+          />
+        </Col>
+        <Col xs={9}>
+          Oct 2018 - Present / Dept. of Mutlimedia Tech Development, MediaTek, Taiwan.
+        </Col>
+      </Row>
+      <Row className="experience-row pt-2">
+        <Col xs={3}>
+          <img
+            className="pt-2"
+            src="https://imba.nthu.edu.tw/images/2019/12/22/nthu-logo.png"
+            alt="nthu logo"
+          />
+        </Col>
+        <Col xs={9}>
+          2016 - 2018 / Dept. of Computer Science, National Tsing Hua University, Taiwan. <br />
+          2012 - 2016 / Dept. of Computer Science, National Tsing Hua University, Taiwan.
+        </Col>
+      </Row>
+    </>
+  );
+}
+
+function SkillStacks() {
+  return (
+    <>
+      <h3 className="mt-5">Skill Stacks</h3>
+      <Row className="project-row pb-4">
+        <Col>
+          <Badge variant="primary">Deep learning</Badge>{" "}
+          <Badge variant="primary">3D reconstruction</Badge>{" "}
+          <Badge variant="primary">Web Full-end</Badge>{" "}
+          <Badge variant="primary">Distributed/Parallel Computation</Badge>{" "}
+          <Badge variant="primary">Open Source</Badge>{" "}
+        </Col>
+      </Row>
+    </>
+  );
+}
+
+function Projects() {
+  const projects = [
+    {
+      title: `Crawler Tutorial for beginners in Python`,
+      link: `https://github.com/leVirve/CrawlerTutorial`,
+      stacks: ["Web crawler"],
+      thumbnailUrl: `https://github.com/leVirve/CrawlerTutorial/raw/master/img/ptt_console_view.png`,
+      description: `A web-based crawler/spider tutorial for beginner on one of the biggest social network website in Taiwan.`,
+    },
+    {
+      title: `Dcard Spider as a out-of-box Python Package`,
+      link: `https://github.com/leVirve/dcard-spider`,
+      stacks: ["Web crawler", "Package"],
+      thumbnailUrl: `https://raw.githubusercontent.com/leVirve/dcard-spider/master/docs/img/snapshot.png`,
+      description: `A web-based API crawler/spider on another biggest social network website in Taiwan.`,
+    },
+    {
+      title: `NTHU Course`,
+      link: `https://github.com/henryyang42/NTHU_Course`,
+      stacks: ["Front-end", "Back-end"],
+      thumbnailUrl: `${process.env.PUBLIC_URL}/image/proj-nthu-course.png`,
+      description: `A system that fetch the course data and provide service that is instinctive, easy to use.`,
+    },
+  ];
+  return (
+    <>
+      <h3 className="mt-5">Projects</h3>
+      {projects.map((project, index) => (
+        <Row className="project-row pt-4" key={index}>
+          <Col sm={3}>
+            <a href={project.link}>
+              <img
+                src={`${project.thumbnailUrl}`}
+                alt={`${project.title}-thumbnail`}
+              />
+            </a>
+          </Col>
+          <Col sm={9}>
+            <p className="proj-title">{project.title}</p>
+            {project.stacks.map((name) => (
+              <>
+                <Badge pill variant="info" key={name}>
+                  {name}
+                </Badge>{" "}
+              </>
+            ))}
+            <p>{project.description}</p>
+          </Col>
+        </Row>
+      ))}
+    </>
+  );
+}
+
 function App() {
   return (
     <>
@@ -49,13 +152,13 @@ function App() {
       </Container>
       <Container fluid>
         <Row className="justify-content-md-center">
+          <Col md={8}>{Experiences()}</Col>
+          <Col md={8}>{SkillStacks()}</Col>
           <Col md={8}>{Research()}</Col>
-          <Col md={8}>Projects</Col>
-          <Col md={8}>Experiences</Col>
-          <Col md={8}>Educations</Col>
-          <Col md={8}>Patents</Col>
-          <Col md={8}>Invited Talks</Col>
-          <Col md={8}>Miscellaneous</Col>
+          <Col md={8}>{Projects()}</Col>
+          {/* <Col md={8}>Invited Talks</Col>
+          <Col md={8}>Contribution</Col>
+          <Col md={8}>Misc - Beverage Art Club</Col> */}
         </Row>
       </Container>
     </>

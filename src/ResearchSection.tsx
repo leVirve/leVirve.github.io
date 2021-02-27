@@ -5,6 +5,11 @@ interface HiddenBibProps {
   uid: string;
   content?: string;
 }
+
+interface AuthorStringProps {
+  names: string[];
+}
+
 function HiddenBibtex(props: HiddenBibProps) {
   const [open, setOpen] = useState(false);
   const { content, uid } = props;
@@ -25,15 +30,12 @@ function HiddenBibtex(props: HiddenBibProps) {
     </>
   );
 }
-interface AuthorStringProps {
-  names: string[];
-}
+
 function AuthorString(props: AuthorStringProps) {
   const { names } = props;
 
   const renderName = (text: string) => {
-    if (text === `Hung-Jin Lin`)
-      return <strong>{text}</strong>;
+    if (text === `Hung-Jin Lin`) return <strong>{text}</strong>;
     return text;
   };
   return (
@@ -47,8 +49,60 @@ function AuthorString(props: AuthorStringProps) {
     </>
   );
 }
+
 export function Research() {
-  const publications = [
+  const publications = getFormatPublication();
+
+  const renderIfExist = (name: string, link?: string) => {
+    if (link)
+      return (
+        <>
+          <a href={link}>{name}</a> /{" "}
+        </>
+      );
+  };
+
+  return (
+    <>
+      <h3>Research</h3>
+      {publications.map((publication, index) => (
+        <Row className="publication-row pt-4" key={index}>
+          <Col sm={3}>
+            <a href={publication.link}>
+              <img
+                src={`${process.env.PUBLIC_URL}/${publication.thumbnailFilename}`}
+                alt={`${publication.title}-thumbnail`}
+              />
+            </a>
+          </Col>
+          <Col sm={9}>
+            <p className="pub-title">{publication.title}</p>
+            <p>
+              <AuthorString names={publication.author} />
+            </p>
+            <p>
+              {publication.conference}, {publication.year}
+            </p>
+            <p>
+              {renderIfExist(`Paper`, publication.paperLink)}
+              {renderIfExist(`Project page`, publication.websiteLink)}
+              {renderIfExist(`Code`, publication.codeLink)}
+              {renderIfExist(`Demo video`, publication.demoLink1)}
+              {renderIfExist(`Demo video 2`, publication.demoLink2)}
+              {renderIfExist(`Invited Talk`, publication.talkLink)}
+            </p>
+          </Col>
+          <Col className="mx-2">
+            <HiddenBibtex content={publication.bibtex} uid={index.toString()} />
+          </Col>
+        </Row>
+      ))}
+    </>
+  );
+}
+
+function getFormatPublication() {
+  return [
     {
       title: `Real-Time Single-Stage Vehicle Detector Optimized by Multi-Stage Image-Based Online Hard Example Mining`,
       author: [
@@ -196,50 +250,4 @@ export function Research() {
       paperLink: `https://openaccess.thecvf.com/content_ICCV_2017_workshops/papers/w3/Lin_Fast_Vehicle_Detector_ICCV_2017_paper.pdf`,
     },
   ];
-
-  const renderIfExist = (name: string, link?: string) => {
-    if (link)
-      return (
-        <>
-          <a href={link}>{name}</a> /{" "}
-        </>
-      );
-  };
-
-  return (
-    <>
-      <h3>Research</h3>
-      {publications.map((publication, index) => (
-        <Row className="publication-row pt-4" key={index}>
-          <Col sm={3}>
-            <a href={publication.link}>
-              <img
-                src={`${process.env.PUBLIC_URL}/${publication.thumbnailFilename}`}
-                alt={`${publication.title}-thumbnail`} />
-            </a>
-          </Col>
-          <Col sm={9}>
-            <p className="pub-title">{publication.title}</p>
-            <p>
-              <AuthorString names={publication.author} />
-            </p>
-            <p>
-              {publication.conference}, {publication.year}
-            </p>
-            <p>
-              {renderIfExist(`Paper`, publication.paperLink)}
-              {renderIfExist(`Project page`, publication.websiteLink)}
-              {renderIfExist(`Code`, publication.codeLink)}
-              {renderIfExist(`Demo video`, publication.demoLink1)}
-              {renderIfExist(`Demo video 2`, publication.demoLink2)}
-              {renderIfExist(`Invited Talk`, publication.talkLink)}
-            </p>
-          </Col>
-          <Col className="mx-2">
-            <HiddenBibtex content={publication.bibtex} uid={index.toString()} />
-          </Col>
-        </Row>
-      ))}
-    </>
-  );
 }

@@ -40,7 +40,6 @@ $font-family-sans-serif:
   img {
     max-width: 200px;
     margin: auto;
-    vertical-align: middle;
   }
   p {
     margin-bottom: 8px;
@@ -59,5 +58,26 @@ $font-family-sans-serif:
   }
   .pub-title {
     font-weight: 550;
+  }
+}
+
+.project-row {
+  img {
+    max-width: 200px;
+    margin: auto;
+  }
+  .proj-title {
+    font-weight: 550;
+  }
+}
+
+.experience-row {
+  font-size: 90%;
+  img {
+    width: 80%;
+    margin: auto;
+    @media (max-width: 450px) {
+      width: 100%;
+    }
   }
 }
