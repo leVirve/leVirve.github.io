@@ -21,7 +21,7 @@ $font-family-sans-serif:
 
 .me-section {
   padding-top: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 .partial-center {
   width: 75%;
@@ -38,8 +38,7 @@ $font-family-sans-serif:
 }
 .publication-row {
   img {
-    max-width: 200px;
-    margin: auto;
+    max-height: 300px;
   }
   p {
     margin-bottom: 8px;
@@ -62,22 +61,22 @@ $font-family-sans-serif:
 }
 
 .project-row {
-  img {
-    max-width: 200px;
-    margin: auto;
-  }
   .proj-title {
-    font-weight: 550;
+    margin-bottom: 4px;
+    font-weight: 500;
   }
 }
 
 .experience-row {
   font-size: 90%;
-  img {
-    width: 80%;
-    margin: auto;
-    @media (max-width: 450px) {
-      width: 100%;
-    }
+  span {
+    font-weight: 300;
+  }
+}
+
+.footer {
+  color: dimgray;
+  a {
+    color: lightslategrey;
   }
 }

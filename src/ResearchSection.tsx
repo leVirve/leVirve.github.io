@@ -64,23 +64,24 @@ export function Research() {
 
   return (
     <>
-      <h3>Research</h3>
+      <h3 className="mt-4">Research</h3>
       {publications.map((publication, index) => (
         <Row className="publication-row pt-4" key={index}>
-          <Col sm={3}>
+          <Col sm={3} className="my-auto">
             <a href={publication.link}>
               <img
                 src={`${process.env.PUBLIC_URL}/${publication.thumbnailFilename}`}
                 alt={`${publication.title}-thumbnail`}
+                className="img-fluid mx-auto d-block"
               />
             </a>
           </Col>
           <Col sm={9}>
-            <p className="pub-title">{publication.title}</p>
+            <p className="pub-title pt-2 my-auto">{publication.title}</p>
             <p>
               <AuthorString names={publication.author} />
             </p>
-            <p>
+            <p className="font-italic">
               {publication.conference}, {publication.year}
             </p>
             <p>
