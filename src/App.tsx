@@ -103,14 +103,13 @@ function Experiences() {
 function SkillStacks() {
   return (
     <>
-      <h3 className="mt-4">Skill Stacks</h3>
+      <h3 className="mt-4">Personal Skills</h3>
       <Row className="project-row pb-4">
         <Col>
           <Badge variant="primary">Deep learning</Badge>{" "}
           <Badge variant="primary">Computer Vision</Badge>{" "}
-          <Badge variant="primary">3D reconstruction</Badge>{" "}
           <Badge variant="primary">Web Full-stack</Badge>{" "}
-          <Badge variant="primary">Distributed/Parallel Computation</Badge>{" "}
+          <Badge variant="primary">Distributed Computing</Badge>{" "}
           <Badge variant="primary">Open Source</Badge>{" "}
         </Col>
       </Row>
@@ -224,9 +223,7 @@ function App() {
           <Col md={8}>{Research()}</Col>
           <Col md={8}>{Projects()}</Col>
           <Col md={8}>{SkillStacks()}</Col>
-          {/* <Col md={8}>Awards</Col>
-          <Col md={8}>Contribution</Col>
-          <Col md={8}>Misc - Beverage Art Club</Col> */}
+          {/*<Col md={8}>Misc - Beverage Art Club</Col> */}
         </Row>
       </Container>
       <Footer />
