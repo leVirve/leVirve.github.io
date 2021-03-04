@@ -45,7 +45,7 @@ function SkillStacks() {
 function Footer() {
   return (
     <Container className="footer">
-      <Row className="justify-content-md-center my-5">
+      <Row className="justify-content-center my-5">
         {"Copyright © "}
         <a href="https://github.com/leVirve" className="px-1">
           Hung-Jin Lin
