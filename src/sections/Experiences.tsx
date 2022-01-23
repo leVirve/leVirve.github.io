@@ -13,7 +13,14 @@ export function Experience() {
           />
         </Col>
         <Col xs={9} className="my-auto">
-          <span className="font-italic">Oct 2018 - Present.</span>
+          <span className="font-italic">May 2021 - Present</span>
+          {". "}
+          <span>Senior Software Engineer</span>
+          <br />
+          <span className="font-italic">Oct 2018 - May 2021</span>
+          {". "}
+          <span>Software Engineer (Excellent Performance)</span>
+
           <br />
           Multimedia Tech Development, MediaTek.
         </Col>

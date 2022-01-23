@@ -18,7 +18,7 @@ export function Profile() {
             <h1>Hung-Jin Lin</h1>
             <h1 className="tw-name">林宏縉</h1>
             <p className="profile-links">
-              <a href="mailto:vtsh.jn@gmail.com">Email</a> / Résumé /{" "}
+              <a href="mailto:vtsh.jn@gmail.com">Email</a> / CV /{" "}
               <a href="https://www.linkedin.com/in/hung-jin-lin-5b66119b/">
                 LinkedIn
               </a>{" "}
@@ -32,7 +32,7 @@ export function Profile() {
               Geometry, and Deep Learning.
             </p>
             <p>
-              I did my undergraduate supervised by{" "}
+              I did my graduate supervised by{" "}
               <a href="https://tw.linkedin.com/in/shang-hong-lai-4913a0b">
                 Shang-Hong Lai
               </a>{" "}
