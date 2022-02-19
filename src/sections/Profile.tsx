@@ -2,6 +2,7 @@ import { Container, Image, Row, Col } from "react-bootstrap";
 
 export function Profile() {
   const profileImageUrl = `${process.env.PUBLIC_URL}/image/profile-rabbit.jpg`;
+  const resumeUrl = `${process.env.PUBLIC_URL}/resume.pdf`;
   return (
     <>
       <Container className="pt-2 profile">
@@ -18,7 +19,8 @@ export function Profile() {
             <h1>Hung-Jin Lin</h1>
             <h1 className="tw-name">林宏縉</h1>
             <p className="profile-links">
-              <a href="mailto:vtsh.jn@gmail.com">Email</a> / CV /{" "}
+              <a href="mailto:vtsh.jn@gmail.com">Email</a> /{" "}
+              <a href={resumeUrl}>CV</a> /{" "}
               <a href="https://www.linkedin.com/in/hung-jin-lin-5b66119b/">
                 LinkedIn
               </a>{" "}
