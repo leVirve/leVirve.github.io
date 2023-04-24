@@ -24,7 +24,10 @@ export function Profile() {
               <a href="https://www.linkedin.com/in/hung-jin-lin-5b66119b/">
                 LinkedIn
               </a>{" "}
-              / <a href="https://github.com/leVirve">Github</a>
+              / <a href="https://github.com/leVirve">Github</a> /{" "}
+              <a href="https://scholar.google.com/citations?hl=en&user=-LTWALcAAAAJ">
+                Google Scholar
+              </a>
             </p>
             <p>
               I am a research engineer at{" "}
